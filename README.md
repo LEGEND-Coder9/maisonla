@@ -1,14 +1,26 @@
 # MAISON LA
 
-React / Express / tRPC / Drizzle starter, adapted from the Sandbox web-db-user template.
+MAISON LA is a mobile-first members-only platform for discovering and requesting curated luxury venues across Los Angeles. The restored product slice includes quiet-luxury discovery, onboarding, editorial venue pages, reservation requests, concierge chat, VIP profile, and staff-facing venue/admin views.
 
-- `pnpm dev`: development server; honors `PORT` (default 3000).
-- `pnpm build` / `pnpm start`: build and serve `dist/index.js` and `dist/public/`.
-- `pnpm db:migrate`: apply checked-in migrations. `pnpm db:push`: generate and apply new schema changes.
-- `pnpm check` / `pnpm test`: types and application tests.
+## Run
 
-Start with the Webdev skill's default-template guide. Platform login, storage, payments and service contracts live in its shared references; read the relevant capability before extending its helper.
+```bash
+pnpm install
+pnpm dev
+pnpm check
+pnpm build
+```
 
-`server/_core/publicConfig.ts` exposes only named public runtime values. Private keys stay server-side. The platform serves managed `/manus-storage/` assets; the application does not register a second proxy.
+Preview listens on port 3000. Manus OAuth/session behavior from the starter is preserved. The project keeps `/api/health` and the platform config endpoint intact.
 
-Platform configuration is readable and editable through `webdev.config`. Default settings are initial values, not enforced constraints. The agent may modify the files, commands and configuration or follow the flexible guide for another stack.
+## Routes
+
+`/` member home; `/onboarding` preference introduction; `/discover` filters by experience and neighborhood; `/venue/:id` editorial venue page; `/booking/:id` reservation request; `/concierge` concierge workspace; `/profile` VIP preferences and reservations; `/venue-dashboard` venue manager view; `/admin` admin view; `/manus-routes.json` route manifest.
+
+## Design system
+
+Warm ivory, stone, taupe, deep espresso, and muted bronze; Cormorant Garamond display type with Inter UI text; editorial image crops, hairline rules, restrained controls, responsive mobile navigation, and reduced-motion support. Copy is discreet and avoids discount or urgency language.
+
+## Data and integrations
+
+The current interface uses realistic LA seed data for the front-end preview, covering Beverly Hills, Bel Air, Malibu, West Hollywood, Santa Monica, Downtown LA, Brentwood, and Pacific Palisades. Booking and concierge interactions are presented as request states and intentionally do not charge a member. Stripe, SMS/email delivery, calendar sync, and LLM tool-calling remain integration follow-ups behind the existing starter server/tRPC boundary.
